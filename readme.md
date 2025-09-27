@@ -77,10 +77,10 @@ describe("<LogoutButton />", () => {
 });
 ```
 
-| Criteria | Rating | Justification |
-| :--- | :--- | :--- |
-| **Isolation** | Excellent | The test successfully isolates the `LogoutButton` component by **mocking** its external dependency, the `Auth0Context`. This ensures the test only focuses on the button's behavior and doesn't rely on a real Auth0 setup. |
-| **Mocking Quality** | Excellent | It uses a **Cypress stub (`cy.stub().as("logoutSpy")`)** to replace the real `logout` function provided by `useAuth0`. This is the perfect approach for tracking calls to external functions. |
-| **Coverage** | Excellent | The test covers the two main responsibilities of the component: 1) **Rendering** the button (`cy.contains("Log Out").should("exist")`) and 2) **Calling the correct function** with the **correct arguments** upon clicking (`cy.get("@logoutSpy").should("have.been.calledWith", ...)`). |
-| **Readability** | Excellent | The test is clear, well-structured, and easy to understand. The use of `.as("logoutSpy")` and `cy.get("@logoutSpy")` makes the intent explicit. |
-| **Clarity of Assertions** | Excellent | The assertion that the `logout` function is called includes the **exact parameters** it should receive (`{ logoutParams: { returnTo: window.location.origin } }`), which is crucial for verifying the logic inside the `onClick` handler. |
+| Criteria | Justification |
+| :--- | :--- |
+| **Isolation** | The test successfully isolates the `LogoutButton` component by **mocking** its external dependency, the `Auth0Context`. This ensures the test only focuses on the button's behavior and doesn't rely on a real Auth0 setup. |
+| **Mocking Quality** | It uses a **Cypress stub (`cy.stub().as("logoutSpy")`)** to replace the real `logout` function provided by `useAuth0`. This is the perfect approach for tracking calls to external functions. |
+| **Coverage** | The test covers the two main responsibilities of the component: 1) **Rendering** the button (`cy.contains("Log Out").should("exist")`) and 2) **Calling the correct function** with the **correct arguments** upon clicking (`cy.get("@logoutSpy").should("have.been.calledWith", ...)`). |
+| **Readability** | The test is clear, well-structured, and easy to understand. The use of `.as("logoutSpy")` and `cy.get("@logoutSpy")` makes the intent explicit. |
+| **Clarity of Assertions** | The assertion that the `logout` function is called includes the **exact parameters** it should receive (`{ logoutParams: { returnTo: window.location.origin } }`), which is crucial for verifying the logic inside the `onClick` handler. |
