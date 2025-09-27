@@ -77,6 +77,8 @@ describe("<LogoutButton />", () => {
 });
 ```
 
+![Screenshot of Logout Button Component](Screenshot%202025-09-27%20112145.png)
+
 | Criteria | Justification |
 | :--- | :--- |
 | **Isolation** | The test successfully isolates the `LogoutButton` component by **mocking** its external dependency, the `Auth0Context`. This ensures the test only focuses on the button's behavior and doesn't rely on a real Auth0 setup. |
